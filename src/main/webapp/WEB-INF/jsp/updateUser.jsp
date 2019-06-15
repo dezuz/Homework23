@@ -15,12 +15,22 @@
     <!-- Bootstrap core CSS -->
     <link href="<c:url value="../../static/css/bootstrap.min.css" />" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="<c:url value="../../static/css/update.css" />" rel="stylesheet">
+    <link href="<c:url value="../../static/css/userCSS.css" />" rel="stylesheet">
 </head>
 
 <body class="text-center">
 <spring:form class="form-signin" method="post" modelAttribute="user">
     <h1 class="h3 mb-3 font-weight-normal">Write an information</h1>
+
+    <c:forEach items="${users}" var="u">
+        <div class="row" >
+            <div class="col-md-1 themed-grid-col">${u.id}</div>
+            <div class="col-md-3 themed-grid-col">${u.email}</div>
+            <div class="col-md-2 themed-grid-col">${u.password}</div>
+            <div class="col-md-3 themed-grid-col">${u.firstName}</div>
+            <div class="col-md-3 themed-grid-col">${u.lastName}</div>
+        </div>
+    </c:forEach>
 
     <label>Select an id:</label>
     <spring:select path="id" name="users" class="select" >

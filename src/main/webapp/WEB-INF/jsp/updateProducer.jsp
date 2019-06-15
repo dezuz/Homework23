@@ -15,21 +15,15 @@
     <!-- Bootstrap core CSS -->
     <link href="<c:url value="../../static/css/bootstrap.min.css" />" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="<c:url value="../../static/css/update.css" />" rel="stylesheet">
+    <link href="<c:url value="../../static/css/main.css" />" rel="stylesheet">
 
 </head>
 
 <body class="text-center">
 <spring:form class="form-signin" method="post" modelAttribute="producer">
     <h1 class="h3 mb-3 font-weight-normal"></h1>
-    <%--<label for="id" class="sr-only">Last name</label>
-    <spring:input path="id" type="text" id="id" class="form-control" placeholder="ID" />--%>
+
     <label>Choose producer</label>
-    <%--<select name="producers" class="select" >
-        <c:forEach items="${producers}" var="p">
-            <option value="${p.name}">${p.name}</option>
-        </c:forEach>
-    </select>--%>
     <c:forEach items="${producers}" var="p">
         <div class="row mb-3" >
             <div class="col-md-6 themed-grid-col">${p.id}</div>
@@ -43,17 +37,8 @@
     <label for="name" class="sr-only">Name</label>
     <spring:input path="name" type="text" id="name" class="form-control" placeholder="Name" />
 
-    <%--<p>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
-    &lt;%&ndash;<button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Delete</button>&ndash;%&gt;
-   &lt;%&ndash; <p class="mt-5 mb-3 text-muted">&copy; 2019</p>&ndash;%&gt;
-    </p>--%>
-    <p>
-        <a href="<c:url value="/producer/create"/> " class="btn btn-primary my-2">Create</a>
-        <a href="<c:url value="/producer/update"/>" class="btn btn-primary my-2">Update</a>
-        <a href="<c:url value="/producer/delete"/>" class="btn btn-primary my-2">Delete</a>
-    </p>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
 </spring:form>
 </body>
 </html>

@@ -1,22 +1,22 @@
 package com.mateacademy.service;
 
-import com.mateacademy.model.User;
+import com.mateacademy.model.UserEntity;
 
 import java.util.List;
 
 public interface UserService {
 
-    User addUser(User user);
+    UserEntity addUser(UserEntity user);
 
-    List<User> findAllUsers();
+    List<UserEntity> findAllUsers();
 
-    User getById(Long id);
+    UserEntity getById(Long id);
 
-    User update(User user);
+    UserEntity update(UserEntity user);
 
     void delete(Long id);
 
-    User findUserByEmail(User user);
+    UserEntity findUserByEmail(UserEntity user);
 
-    void saveUser(User user);
+    void saveUser(UserEntity user);
 }

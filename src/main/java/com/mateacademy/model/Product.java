@@ -21,6 +21,7 @@ public class Product extends BaseModel {
     private BigDecimal price;
 
     @ManyToOne
+    @JoinColumn(name="producer_id")
     private Producer producer;
 
 }

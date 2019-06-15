@@ -1,9 +1,9 @@
 package com.mateacademy.repository;
 
-import com.mateacademy.model.User;
+import com.mateacademy.model.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
-    User findByEmail(String email);
+    UserEntity findByEmail(String email);
 }

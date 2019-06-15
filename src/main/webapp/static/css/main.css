@@ -52,7 +52,7 @@ label {
     display: block;
     margin-top: 2rem;
 }
-#id, #name{
+#id, #name, #price{
     margin-bottom: 10px;
 }
 .themed-grid-col {
@@ -62,3 +62,6 @@ label {
     border: 1px solid rgba(86, 61, 124, .2);
 }
 
+select {
+    margin-bottom: 10px;
+}

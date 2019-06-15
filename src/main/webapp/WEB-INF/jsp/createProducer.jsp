@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-    <title>Login page</title>
+    <title>Producer page</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
 
@@ -16,19 +16,25 @@
     <link href="<c:url value="../../static/css/bootstrap.min.css" />" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="<c:url value="../../static/css/main.css" />" rel="stylesheet">
+
 </head>
 
 <body class="text-center">
-<spring:form class="form-signin" method="post" modelAttribute="user">
-    <h1 class="h3 mb-3 font-weight-normal">Login:</h1>
+<spring:form class="form-signin" method="post" modelAttribute="producer">
+    <h1 class="h3 mb-3 font-weight-normal"></h1>
 
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <spring:input path="email" type="text" id="inputEmail" class="form-control" placeholder="Email address" />
+    <label>Choose producer</label>
+    <c:forEach items="${producers}" var="p">
+        <div class="row mb-3" >
+            <div class="col-md-6 themed-grid-col">${p.id}</div>
+            <div class="col-md-6 themed-grid-col">${p.name}</div>
+        </div>
+    </c:forEach>
 
-    <label for="inputPassword" class="sr-only">Password</label>
-    <spring:input path="password" type="password" id="inputPassword" class="form-control" placeholder="Password" />
+    <label for="name" class="sr-only">Name</label>
+    <spring:input path="name" type="text" id="name" class="form-control" placeholder="Name" />
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
 </spring:form>
 </body>

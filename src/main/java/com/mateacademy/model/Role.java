@@ -20,5 +20,5 @@ public class Role extends BaseModel {
     private String name;
 
     @ManyToOne
-    private User user;
+    private UserEntity user;
 }

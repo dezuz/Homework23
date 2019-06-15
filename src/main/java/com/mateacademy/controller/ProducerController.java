@@ -13,9 +13,9 @@ public class ProducerController {
     @Autowired
     private ProducerServiceImpl producerService;
 
-    @GetMapping
-    public ModelAndView producerPage(ModelAndView modelAndView) {
-        modelAndView.setViewName("producerPage");
+    @GetMapping("/create")
+    public ModelAndView createProducerPage(ModelAndView modelAndView) {
+        modelAndView.setViewName("createProducer");
         modelAndView.addObject("producer", new Producer());
         modelAndView.addObject("producers", producerService.findAllProducers());
         return modelAndView;
@@ -23,21 +23,37 @@ public class ProducerController {
 
     @PostMapping("/create")
     public ModelAndView createProducer(@ModelAttribute Producer producer, ModelAndView modelAndView) {
-        modelAndView.setViewName("producerPage");
+        modelAndView.setViewName("producerCreatedPage");
         modelAndView.addObject("create", producerService.addProducer(producer));
         return modelAndView;
     }
 
-    @PutMapping("/update")
+    @GetMapping("/update")
+    public ModelAndView updateProducerPage(ModelAndView modelAndView) {
+        modelAndView.setViewName("updateProducer");
+        modelAndView.addObject("producer", new Producer());
+        modelAndView.addObject("producers", producerService.findAllProducers());
+        return modelAndView;
+    }
+
+    @PostMapping("/update")
     public ModelAndView updateProducer(@ModelAttribute Producer producer, ModelAndView modelAndView) {
-        modelAndView.setViewName("producerPage");
+        modelAndView.setViewName("producerUpdatedPage");
         modelAndView.addObject("update", producerService.update(producer));
         return modelAndView;
     }
 
-    @DeleteMapping("/delete")
+    @GetMapping("/delete")
+    public ModelAndView deleteProducerPage(ModelAndView modelAndView) {
+        modelAndView.setViewName("deleteProducer");
+        modelAndView.addObject("producer", new Producer());
+        modelAndView.addObject("producers", producerService.findAllProducers());
+        return modelAndView;
+    }
+
+    @PostMapping("/delete")
     public ModelAndView deleteProducer(@ModelAttribute Producer producer, ModelAndView modelAndView) {
-        modelAndView.setViewName("producerPage");
+        modelAndView.setViewName("producerDeletedPage");
         modelAndView.addObject("delete", producerService.getById(producer.getId()));
         producerService.delete(producer.getId());
         return modelAndView;

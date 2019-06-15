@@ -15,7 +15,7 @@ import java.util.Set;
 @Getter
 @Accessors(chain = true)
 @Table(name = "user")
-public class User extends BaseModel {
+public class UserEntity extends BaseModel {
 
     @Column(name = "email")
     private String email;

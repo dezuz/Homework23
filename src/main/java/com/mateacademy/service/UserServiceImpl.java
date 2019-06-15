@@ -1,11 +1,11 @@
 package com.mateacademy.service;
 
 import com.mateacademy.model.Role;
-import com.mateacademy.model.User;
+import com.mateacademy.model.UserEntity;
 import com.mateacademy.repository.RoleRepository;
 import com.mateacademy.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+/*import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;*/
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
         this.roleRepository = roleRepository;
     }
 
-    public void saveUser(User user) {
+    public void saveUser(UserEntity user) {
         user.setPassword(user.getPassword());
         Role userRole = roleRepository.findByName("ADMIN");
         user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
@@ -33,21 +33,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User addUser(User user) {
+    public UserEntity addUser(UserEntity user) {
         return userRepository.save(user);
     }
 
     @Override
-    public List<User> findAllUsers() {
+    public List<UserEntity> findAllUsers() {
         return userRepository.findAll();
     }
     @Override
-    public User getById(Long id) {
+    public UserEntity getById(Long id) {
         return userRepository.findById(id).orElseThrow(NullPointerException::new);
     }
 
     @Override
-    public User update(User user) {
+    public UserEntity update(UserEntity user) {
         return userRepository.save(user);
     }
 
@@ -57,7 +57,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findUserByEmail(User user) {
+    public UserEntity findUserByEmail(UserEntity user) {
         return userRepository.findByEmail(user.getEmail());
     }
+
+
 }
