@@ -17,6 +17,4 @@ public interface UserService {
     void delete(Long id);
 
     UserEntity findUserByEmail(UserEntity user);
-
-    void saveUser(UserEntity user);
 }

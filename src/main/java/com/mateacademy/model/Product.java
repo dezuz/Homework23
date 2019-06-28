@@ -23,5 +23,4 @@ public class Product extends BaseModel {
     @ManyToOne
     @JoinColumn(name="producer_id")
     private Producer producer;
-
 }

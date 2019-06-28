@@ -5,7 +5,6 @@ import com.mateacademy.model.UserEntity;
 import com.mateacademy.repository.RoleRepository;
 import com.mateacademy.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-/*import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;*/
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -25,13 +24,6 @@ public class UserServiceImpl implements UserService {
         this.roleRepository = roleRepository;
     }
 
-    public void saveUser(UserEntity user) {
-        user.setPassword(user.getPassword());
-        Role userRole = roleRepository.findByName("ADMIN");
-        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
-        userRepository.save(user);
-    }
-
     @Override
     public UserEntity addUser(UserEntity user) {
         return userRepository.save(user);
@@ -41,6 +33,7 @@ public class UserServiceImpl implements UserService {
     public List<UserEntity> findAllUsers() {
         return userRepository.findAll();
     }
+
     @Override
     public UserEntity getById(Long id) {
         return userRepository.findById(id).orElseThrow(NullPointerException::new);
@@ -60,6 +53,4 @@ public class UserServiceImpl implements UserService {
     public UserEntity findUserByEmail(UserEntity user) {
         return userRepository.findByEmail(user.getEmail());
     }
-
-
 }

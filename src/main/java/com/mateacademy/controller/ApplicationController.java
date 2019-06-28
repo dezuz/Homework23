@@ -28,5 +28,4 @@ public class ApplicationController {
         modelAndView.addObject("check", userService.findUserByEmail(user));
         return modelAndView;
     }
-
 }
